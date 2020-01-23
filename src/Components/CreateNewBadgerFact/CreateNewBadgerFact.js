@@ -17,7 +17,7 @@ let CreateNewBadgerFact = () => {
                     console.log('Editor is ready to use!', editor);
                 }}
                 onChange={(event, editor) => {
-                    const editorData = editor.getData()
+                    const editorData = editor.getData().replace(/<\/?[^>]+(>|$)/g, "");
                     setData(editorData)
                     console.log(data)
                 }}

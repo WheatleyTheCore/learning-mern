@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios'
@@ -49,7 +49,7 @@ class EditBadgerFact extends React.Component {
                 />
                 <button className="btn btn-primary" onClick={() => {
                     let updatedFact = {
-                        badgerFact_data: this.state.data
+                        badgerFact_data: this.state.data.replace(/<\/?[^>]+(>|$)/g, "")
                     }
                     axios.post("http://localhost:4000/badgerFacts/update/" + this.props.match.params.id, updatedFact)
                         .then(response => {
