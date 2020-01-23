@@ -65,6 +65,12 @@ badgerFactRoutes.route('/update/:id').post(function(req, res) {
     })
 })
 
+badgerFactRoutes.route('/delete/:id').delete(function(req, res) {
+    BadgerFact.findById(req.params.id, function(err, fact) {
+        fact.remove().then( res.json("fact deleted!") )
+    })
+})
+
 app.listen(PORT, function () {
     console.log("WOOOOO! The badger server is running on Port: " + PORT);
 });
