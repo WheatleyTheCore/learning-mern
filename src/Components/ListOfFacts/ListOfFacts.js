@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 class ListOfFacts extends React.Component {
     constructor(props) {
@@ -30,6 +31,12 @@ class ListOfFacts extends React.Component {
                 return (
                     <div>
                        {fact.badgerFact_data}
+                       <Link to={"/edit/" + fact._id}>
+                           edit
+                       </Link>
+                       <Link to={"/delete/" + fact._id}>
+                           delete
+                       </Link>
                        <hr />
                     </div>
                 )
